@@ -31,7 +31,10 @@ const SearchManufacturer = ({
 
   return (
     <div className="flex-1 max-sm:w-full flex justify-start items-center">
-      <Combobox>
+      <Combobox
+        value={manufacturer}
+        onChange={(value) => setManufacturer(value ?? "")}
+      >
         <div className="relative w-full">
           <ComboboxButton className="absolute top-3.5">
             <Image

@@ -16,7 +16,7 @@ export default function CustomButton({
       disabled={false}
       type={btnType || "button"}
       className={`custom-btn cursor-pointer ${containerStyles}`}
-      onClick={(handleClick) => {}}
+      onClick={handleClick}
     >
       <span className={`flex-1 ${textStyles}`}>{title}</span>
       {rightIcon && (

@@ -1,8 +1,35 @@
 import { CarCard, Hero, SearchBar } from "@/components";
 import { fetchCars } from "@/utils";
 
-export default async function Home() {
-  const allCars = await fetchCars();
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const getString = (param: string | string[] | undefined): string => {
+    if (Array.isArray(param)) return param[0] || "";
+    return param || "";
+  };
+
+  const getNumber = (
+    param: string | string[] | undefined,
+  ): number | undefined => {
+    const value = Array.isArray(param) ? param[0] : param;
+    if (!value) return undefined;
+
+    const parsed = Number(value);
+    return isNaN(parsed) ? undefined : parsed;
+  };
+
+  const filters = await searchParams;
+
+  const allCars = await fetchCars({
+    manufacturer: getString(filters?.manufacturer),
+    year: getNumber(filters?.year),
+    fuel: getString(filters?.fuel),
+    limit: getNumber(filters?.limit),
+    model: getString(filters?.model),
+  });
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
