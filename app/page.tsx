@@ -1,4 +1,5 @@
-import { CarCard, Hero, SearchBar } from "@/components";
+import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
+import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
 
 export default async function Home({
@@ -41,14 +42,17 @@ export default async function Home({
           <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
           <p>Explore the cars you might like</p>
         </div>
-        <div className="mt-12 w-full flex-between items-center flex-wrap gap-5">
+        <div className="mt-12 flex w-full justify-between items-center flex-wrap gap-6">
           <SearchBar />
-          <div className="flex justify-start flex-wrap items-center gap-2"></div>
+          <div className="p-6 flex justify-start flex-wrap items-center gap-2">
+            <CustomFilter title="fuel" options={fuels} />
+            <CustomFilter title="year" options={yearsOfProduction} />
+          </div>
         </div>
 
         {!isDataEmpty ? (
           <section>
-            <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
+            <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
               {allCars?.map((car) => (
                 <CarCard
                   key={`${car.make}-${car.model}-${car.year}`}

@@ -4,7 +4,13 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 
 export default function Hero() {
-  const handleScroll = () => {};
+  const handleScroll = () => {
+    const element = document.getElementById("cars-section");
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="flex xl:flex-row flex-col gap-5 relative z-0 max-w-360 mx-auto">
@@ -23,14 +29,14 @@ export default function Hero() {
         />
       </div>
       <div className="xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen">
-        <div className="relative xl:w-full w-[90%] xl:h-full h-147.5 z-0">
+        <div className="relative xl:w-full w-[90%] xl:h-full h-120 sm:h-147.5 z-0">
           <Image src="/hero.png" alt="hero" fill className="object-contain" />
           <div
             className="absolute xl:-top-24 xl:-right-1/2 -right-1/4 
-    w-[150%] xl:h-screen h-147.5 
+    w-[150%] xl:h-screen h-110 sm:h-147.5 
     bg-blue-600 
     [clip-path:polygon(35%_0%,60%_0%,100%_70%,5%_100%)] 
-    rounded-bl-[120px] 
+    rounded-bl-[100px] 
     -z-10"
           />
         </div>

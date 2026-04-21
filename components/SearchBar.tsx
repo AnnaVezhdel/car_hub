@@ -56,7 +56,8 @@ export default function SearchBar() {
 
   return (
     <form
-      className="flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl"
+      id="cars-section"
+      className="flex items-center justify-start scroll-mt-34 max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl"
       onSubmit={handleSearch}
     >
       <div className="flex-1 max-sm:w-full flex justify-start items-center relative">

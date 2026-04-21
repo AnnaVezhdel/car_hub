@@ -27,12 +27,12 @@ export async function fetchCars(filters: FilterProps) {
 
 
 export const calculateCarRent = (cylinders: number, year: number) => {
-  const basePricePerDay = 50; // Base rental price per day in dollars
-  const mileageFactor = 0.1; // Additional rate per mile driven
-  const ageFactor = 0.05; // Additional rate per year of vehicle age
+    const basePricePerDay = 50; // Base rental price per day in dollars
+    const mileageFactor = 0.1; // Additional rate per mile driven
+    const ageFactor = 0.05; // Additional rate per year of vehicle age
 
-  // Calculate additional rate based on mileage and age
-  const mileageRate = cylinders * mileageFactor;
+    // Calculate additional rate based on mileage and age
+    const mileageRate =  mileageFactor * cylinders || 5;
   const ageRate = (new Date().getFullYear() - year) * ageFactor;
 
   // Calculate total rental rate per day
@@ -55,5 +55,12 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
 return `${url}`;
 };
 
+export const updateSearchParams = (type: string, value: string) => {
+    const searchParams = new URLSearchParams(window.location.search);
+    
+    searchParams.set(type, value);
+    
+    const newPathName = `${window.location.pathname}?${searchParams.toString()}`;
 
-
+    return newPathName;
+}
