@@ -40,8 +40,8 @@ const CarCard = ({ car }: CarCardProps) => {
             className="object-contain"
           />
         </div>
-        <div className="relative flex w-full mt-2">
-          <div className="flex group-hover:invisible w-full justify-between text-gray">
+        <div className="relative flex flex-col gap-6 w-full mt-2">
+          <div className="flex sm:group-hover:invisible w-full justify-between text-gray">
             <div className="flex flex-col justify-center items-center gap-2">
               <Image
                 src="/steering-wheel.svg"
@@ -63,7 +63,7 @@ const CarCard = ({ car }: CarCardProps) => {
             </div>
           </div>
 
-          <div className="opacity-0 group-hover:opacity-100 absolute bottom-0 w-full z-10 transition-all duration-300">
+          <div className="sm:opacity-0 sm:group-hover:opacity-100 sm:absolute sm:bottom-0 w-full z-10 transition-all duration-300">
             <CustomButton
               title="View More"
               containerStyles="w-full py-[16px] flex rounded-full bg-blue-500 focus:outline-none"

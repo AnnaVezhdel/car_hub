@@ -44,7 +44,7 @@ export default async function Home({
         </div>
         <div className="mt-12 flex w-full justify-between items-center flex-wrap gap-6">
           <SearchBar />
-          <div className="p-6 flex justify-start flex-wrap items-center gap-2">
+          <div className="pr-6 flex justify-start flex-wrap items-center gap-6">
             <CustomFilter title="fuel" options={fuels} />
             <CustomFilter title="year" options={yearsOfProduction} />
           </div>
