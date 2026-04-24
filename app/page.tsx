@@ -1,4 +1,5 @@
 import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
+import BookForm from "@/components/BookForm";
 import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
 
@@ -37,7 +38,7 @@ export default async function Home({
   return (
     <main className="overflow-hidden">
       <Hero />
-      <div className="mt-12 sm:px-16 px-6 py-4 max-width" id="discover">
+      <div className="mt-12 sm:px-16 px-6 py-4 max-w-360 m-auto">
         <div className="flex flex-col items-start justify-start gap-y-2.5 text-black-100">
           <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
           <p>Explore the cars you might like</p>
@@ -52,13 +53,14 @@ export default async function Home({
 
         {!isDataEmpty ? (
           <section>
-            <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
+            <div className="flex flex-wrap gap-8 sm:gap-18 pt-14 items-center justify-center">
               {allCars?.map((car) => (
                 <CarCard
                   key={`${car.make}-${car.model}-${car.year}`}
                   car={car}
                 />
               ))}
+              <BookForm />
             </div>
           </section>
         ) : (

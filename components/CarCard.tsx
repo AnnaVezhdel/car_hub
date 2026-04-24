@@ -20,7 +20,7 @@ const CarCard = ({ car }: CarCardProps) => {
 
   return (
     <>
-      <div className="group flex flex-col p-6 justify-center items-start text-black-100 bg-blue-50 hover:bg-white hover:shadow-md rounded-3xl">
+      <div className="max-w-sm w-full group flex flex-col p-6 justify-center items-start text-black-100 bg-blue-50 hover:bg-white hover:shadow-md rounded-3xl">
         <div className="w-full flex justify-between items-start gap-2">
           <h2 className="text-[22px] leading-6.5 font-bold capitalize">
             {make} {model}
@@ -31,7 +31,7 @@ const CarCard = ({ car }: CarCardProps) => {
           {carRent}
           <span className="self-end text-[14px] font-medium">/day</span>
         </p>
-        <div className="relative w-full h-40 my-3  object-contain">
+        <div className="relative w-full h-50 my-3  object-contain">
           <Image
             src={generateCarImageUrl(car)}
             alt="car model"
@@ -67,7 +67,7 @@ const CarCard = ({ car }: CarCardProps) => {
             <CustomButton
               title="View More"
               containerStyles="w-full py-[16px] flex rounded-full bg-blue-500 focus:outline-none"
-              textStyles="text-white text-[16px] leading-[17px] font-bold"
+              textStyles="text-white text-[16px] font-bold"
               rightIcon="/right-arrow.svg"
               handleClick={() => {
                 setIsOpen(true);
@@ -75,12 +75,12 @@ const CarCard = ({ car }: CarCardProps) => {
             />
           </div>
         </div>
+        <CarDetails
+          isOpen={isOpen}
+          closeModal={() => setIsOpen(false)}
+          car={car}
+        />
       </div>
-      <CarDetails
-        isOpen={isOpen}
-        closeModal={() => setIsOpen(false)}
-        car={car}
-      />
     </>
   );
 };

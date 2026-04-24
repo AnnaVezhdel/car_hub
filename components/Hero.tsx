@@ -31,8 +31,8 @@ export default function Hero() {
       <div className="xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen">
         <div className="relative xl:w-full w-[90%] xl:h-full h-147.5 z-0">
           <Image src="/hero.png" alt="hero" fill className="object-contain" />
-          <div className="absolute xl:-top-24 -right-1/4 bg-[url('/hero-bg.png')] bg-repeat-round -z-10 w-full xl:h-screen h-124 overflow-hidden" />
         </div>
+        <div className="absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-[url('/hero-bg.png')] bg-repeat-round -z-10 w-full xl:h-screen h-124 overflow-hidden" />
       </div>
     </div>
   );
