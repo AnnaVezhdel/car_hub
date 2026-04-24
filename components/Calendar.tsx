@@ -21,7 +21,7 @@ function Calendar({ name }: CalendarProps) {
   return (
     <div className="border border-gray-300 p-2 rounded-md">
       <DatePicker
-        className="focus:outline-none text-sm min-w-48 "
+        className="focus:outline-none min-w-54 "
         selectsRange
         startDate={value?.[0] || null}
         endDate={value?.[1] || null}
